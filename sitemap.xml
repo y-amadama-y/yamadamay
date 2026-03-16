@@ -2,17 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://100.111.243.68/posts/</loc>
+    <loc>https://yamadamay.dev/posts/</loc>
     <lastmod>2026-03-15T14:53:18+09:00</lastmod>
   </url><url>
-    <loc>http://100.111.243.68/posts/test/</loc>
+    <loc>https://yamadamay.dev/posts/test/</loc>
     <lastmod>2026-03-15T14:53:18+09:00</lastmod>
   </url><url>
-    <loc>http://100.111.243.68/</loc>
+    <loc>https://yamadamay.dev/</loc>
     <lastmod>2026-03-15T14:53:18+09:00</lastmod>
   </url><url>
-    <loc>http://100.111.243.68/categories/</loc>
+    <loc>https://yamadamay.dev/categories/</loc>
   </url><url>
-    <loc>http://100.111.243.68/tags/</loc>
+    <loc>https://yamadamay.dev/tags/</loc>
   </url>
 </urlset>
