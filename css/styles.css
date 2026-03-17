@@ -1,0 +1,527 @@
+:root {
+  /* Font */
+  --font-family: sans-serif;
+  --base-font-size: 18px;
+  --line-height: 1.5;
+
+  /* Layout */
+  --body-min-margin: 16px; /* Left margin and right margin */
+  --body-available-width: calc(
+    100% - 2 * var(--body-min-margin)
+  ); /* Mobile width */
+  --body-max-width: 768px; /* Desktop width */
+
+  /* Color, see https://github.com/morhetz/gruvbox */
+  /* Light theme */
+  --background-color-light: #fbf1c7;
+  --background-color1-light: #ebdbb2;
+  --foreground-color-light: #3c3836;
+  --foreground-color3-light: #665c54;
+  --accent-color-light: #af3a03;
+
+  /* Dark theme */
+  --background-color-dark: #282828;
+  --background-color1-dark: #3c3836;
+  --foreground-color-dark: #ebdbb2;
+  --foreground-color3-dark: #bdae93;
+  --accent-color-dark: #fe8019;
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.body {
+  margin: 0;
+}
+
+/* Avoid overflow */
+svg,
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* List */
+.menu__list,
+.translation-list,
+.pagination {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+/* Task list */
+ul:has(> li > input[type="checkbox"]) {
+  list-style-type: none;
+  padding-inline-start: 1em;
+}
+
+blockquote {
+  margin: 0;
+}
+/*
+On mobile, set max width and min margins
+On desktop, set fixed width and max margins
+*/
+.body {
+  width: min(var(--body-available-width), var(--body-max-width));
+  margin-inline: auto;
+}
+/* Global */
+.html {
+  font-size: var(--base-font-size); /* rem */
+}
+
+.body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+}
+
+p,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  /* Break long words */
+  overflow-wrap: break-word;
+}
+
+.toc {
+  margin-block: 1rem;
+}
+
+.toc__summary {
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+blockquote {
+  padding: 0.5rem;
+}
+
+hr {
+  border: none;
+  height: 1px;
+}
+
+figure {
+  margin-inline: 0;
+}
+
+/* Heading anchor link */
+.heading__anchor {
+  display: none;
+}
+.heading:hover > .heading__anchor {
+  display: inline;
+}
+
+/* Table */
+.table-wrapper {
+  /* Horizontal scrollbar for table */
+  overflow-x: auto;
+  /* Margin */
+  margin-block: 1rem;
+
+  & > table {
+    /* Override global word-break, don't break Chinese/Japanese/Korean (CJK) text */
+    word-break: keep-all;
+    /* Style */
+    border-collapse: collapse;
+  }
+
+  & > table :is(td, th) {
+    padding: 0.5rem;
+    text-align: start;
+  }
+}
+
+/* Menu and language selector */
+.menu__list {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.menu__link--active {
+  font-weight: bolder;
+}
+
+/* Paginator */
+.pagination {
+  display: flex;
+  gap: 1rem;
+}
+
+.page-item.active {
+  font-weight: bolder;
+}
+
+/* Page nav */
+.page-nav {
+  display: flex;
+  flex-direction: column;
+  margin-block: 1rem;
+}
+
+/* Make [section post title / term post title] close to date info */
+.section-post-title,
+.term-post-title {
+  margin-block-start: 0;
+}
+
+/* Make home post title close to summary */
+.home-post-title {
+  margin-block-end: 0;
+}
+
+/* Make summary close to home post title */
+.summary {
+  margin-block-start: 0;
+}
+
+/* Inline code */
+:not(pre) > code {
+  padding-inline: 0.25rem;
+}
+
+/*
+Fenced code block (with line number, with language): div.highlight > div.chroma > table.lntable > tbody > tr > td.lntd > pre.chroma > code.language-javascript
+Fenced code block (without line number, with language): div.highlight > pre.chroma > code.language-javascript
+Fenced code block (without line number, without language) / indented code block: pre > code
+*/
+
+/* Code block with specified language */
+div.highlight {
+  /* Horizontal scrollbar */
+  overflow-x: auto;
+  /* Prevent two code blocks sticking together */
+  margin-block: 1rem;
+}
+
+/* With line number */
+/* Prevent italic character overflowing */
+div.highlight > div.chroma > table.lntable {
+  padding-inline-end: 0.4rem; /* same as line number's padding */
+}
+
+/* Without line number */
+/* Prevent italic character overflowing (padding-inline-end doesn't work on Firefox Linux 128.0 and Chrome Linux 126.0.6478.182) */
+div.highlight > pre.chroma {
+  padding-inline: 0.4rem;
+}
+
+/* Code block [without specified language / indented with 4 spaces] */
+pre:not(.chroma) {
+  /* Horizontal scrollbar */
+  overflow-x: auto;
+  padding-block: 1rem;
+  padding-inline: 0.4rem; /* padding-inline-end doesn't work on Firefox Linux 128.0 */
+}
+
+pre {
+  /* Smaller font size */
+  font-size: 0.875rem;
+}
+
+.footer {
+  font-size: smaller;
+}
+/* Color, see https://github.com/morhetz/gruvbox */
+
+/* Light theme by default */
+:root {
+  --background-color: var(--background-color-light); /* body */
+  --background-color1: var(
+    --background-color1-light
+  ); /* blockquote, code block, border, table, hr */
+  --foreground-color: var(--foreground-color-light); /* text */
+  --foreground-color3: var(--foreground-color3-light); /* figcaption */
+  --accent-color: var(--accent-color-light); /* link, blockquote */
+}
+
+/* Override variables for dark theme */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: var(--background-color-dark);
+    --background-color1: var(--background-color1-dark);
+    --foreground-color: var(--foreground-color-dark);
+    --foreground-color3: var(--foreground-color3-dark);
+    --accent-color: var(--accent-color-dark);
+  }
+}
+
+/* Set color */
+.body {
+  background-color: var(--background-color);
+  color: var(--foreground-color);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--foreground-color);
+}
+
+a {
+  color: var(--accent-color);
+}
+
+.header {
+  border-bottom: 1px solid var(--background-color1);
+}
+
+.footer {
+  border-top: 1px solid var(--background-color1);
+}
+
+blockquote {
+  background-color: var(--background-color1);
+
+  [dir="rtl"] & {
+    border-right: 0.5rem solid var(--accent-color);
+  }
+
+  [dir="ltr"] & {
+    border-left: 0.5rem solid var(--accent-color);
+  }
+}
+
+/* Don't apply inline code's style to code block */
+:not(pre) > code {
+  background-color: var(--background-color1);
+}
+
+hr {
+  background: var(--background-color1);
+}
+
+/* Table */
+table {
+  background-color: var(--background-color1);
+}
+
+td,
+th {
+  border: 1px solid var(--background-color);
+}
+
+/* Figure */
+figcaption {
+  color: var(--foreground-color3);
+}
+/* Light theme by default */
+/* Background */ .bg { color:#3c3836;background-color:#fbf1c7; }
+/* PreWrapper */ .chroma { color:#3c3836;background-color:#fbf1c7; }
+/* Other */ .chroma .x {  }
+/* Error */ .chroma .err {  }
+/* CodeLine */ .chroma .cl {  }
+/* LineLink */ .chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
+/* LineTableTD */ .chroma .lntd { vertical-align:top;padding:0;margin:0;border:0; }
+/* LineTable */ .chroma .lntable { border-spacing:0;padding:0;margin:0;border:0; }
+/* LineHighlight */ .chroma .hl { background-color:#e1d8b3 }
+/* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#9d9b9a }
+/* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#9d9b9a }
+/* Line */ .chroma .line { display:flex; }
+/* Keyword */ .chroma .k { color:#af3a03 }
+/* KeywordConstant */ .chroma .kc { color:#af3a03 }
+/* KeywordDeclaration */ .chroma .kd { color:#af3a03 }
+/* KeywordNamespace */ .chroma .kn { color:#af3a03 }
+/* KeywordPseudo */ .chroma .kp { color:#af3a03 }
+/* KeywordReserved */ .chroma .kr { color:#af3a03 }
+/* KeywordType */ .chroma .kt { color:#b57614 }
+/* Name */ .chroma .n {  }
+/* NameAttribute */ .chroma .na { color:#79740e;font-weight:bold }
+/* NameBuiltin */ .chroma .nb { color:#b57614 }
+/* NameBuiltinPseudo */ .chroma .bp {  }
+/* NameClass */ .chroma .nc {  }
+/* NameConstant */ .chroma .no { color:#d3869b }
+/* NameDecorator */ .chroma .nd {  }
+/* NameEntity */ .chroma .ni { color:#b57614 }
+/* NameException */ .chroma .ne { color:#fb4934 }
+/* NameFunction */ .chroma .nf { color:#b57614 }
+/* NameFunctionMagic */ .chroma .fm {  }
+/* NameLabel */ .chroma .nl { color:#9d0006 }
+/* NameNamespace */ .chroma .nn {  }
+/* NameOther */ .chroma .nx {  }
+/* NameProperty */ .chroma .py {  }
+/* NameTag */ .chroma .nt { color:#9d0006 }
+/* NameVariable */ .chroma .nv {  }
+/* NameVariableClass */ .chroma .vc {  }
+/* NameVariableGlobal */ .chroma .vg {  }
+/* NameVariableInstance */ .chroma .vi {  }
+/* NameVariableMagic */ .chroma .vm {  }
+/* Literal */ .chroma .l {  }
+/* LiteralDate */ .chroma .ld {  }
+/* LiteralString */ .chroma .s { color:#79740e }
+/* LiteralStringAffix */ .chroma .sa { color:#79740e }
+/* LiteralStringBacktick */ .chroma .sb { color:#79740e }
+/* LiteralStringChar */ .chroma .sc { color:#79740e }
+/* LiteralStringDelimiter */ .chroma .dl { color:#79740e }
+/* LiteralStringDoc */ .chroma .sd { color:#79740e }
+/* LiteralStringDouble */ .chroma .s2 { color:#79740e }
+/* LiteralStringEscape */ .chroma .se { color:#79740e }
+/* LiteralStringHeredoc */ .chroma .sh { color:#79740e }
+/* LiteralStringInterpol */ .chroma .si { color:#79740e }
+/* LiteralStringOther */ .chroma .sx { color:#79740e }
+/* LiteralStringRegex */ .chroma .sr { color:#79740e }
+/* LiteralStringSingle */ .chroma .s1 { color:#79740e }
+/* LiteralStringSymbol */ .chroma .ss { color:#076678 }
+/* LiteralNumber */ .chroma .m { color:#8f3f71 }
+/* LiteralNumberBin */ .chroma .mb { color:#8f3f71 }
+/* LiteralNumberFloat */ .chroma .mf { color:#8f3f71 }
+/* LiteralNumberHex */ .chroma .mh { color:#8f3f71 }
+/* LiteralNumberInteger */ .chroma .mi { color:#8f3f71 }
+/* LiteralNumberIntegerLong */ .chroma .il { color:#8f3f71 }
+/* LiteralNumberOct */ .chroma .mo { color:#8f3f71 }
+/* Operator */ .chroma .o { color:#af3a03 }
+/* OperatorWord */ .chroma .ow { color:#af3a03 }
+/* Punctuation */ .chroma .p {  }
+/* Comment */ .chroma .c { color:#928374;font-style:italic }
+/* CommentHashbang */ .chroma .ch { color:#928374;font-style:italic }
+/* CommentMultiline */ .chroma .cm { color:#928374;font-style:italic }
+/* CommentSingle */ .chroma .c1 { color:#928374;font-style:italic }
+/* CommentSpecial */ .chroma .cs { color:#928374;font-style:italic }
+/* CommentPreproc */ .chroma .cp { color:#427b58 }
+/* CommentPreprocFile */ .chroma .cpf { color:#427b58;font-style:italic }
+/* Generic */ .chroma .g {  }
+/* GenericDeleted */ .chroma .gd { color:#282828;background-color:#9d0006 }
+/* GenericEmph */ .chroma .ge { color:#076678;text-decoration:underline }
+/* GenericError */ .chroma .gr { background-color:#9d0006;font-weight:bold }
+/* GenericHeading */ .chroma .gh { color:#79740e;font-weight:bold }
+/* GenericInserted */ .chroma .gi { color:#282828;background-color:#79740e }
+/* GenericOutput */ .chroma .go { color:#504945 }
+/* GenericPrompt */ .chroma .gp {  }
+/* GenericStrong */ .chroma .gs {  }
+/* GenericSubheading */ .chroma .gu { color:#79740e;font-weight:bold }
+/* GenericTraceback */ .chroma .gt { background-color:#3c3836;font-weight:bold }
+/* GenericUnderline */ .chroma .gl {  }
+/* TextWhitespace */ .chroma .w {  }
+
+/* Dark theme */
+@media (prefers-color-scheme: dark) {
+  /* Background */ .bg { color:#ebdbb2;background-color:#282828; }
+  /* PreWrapper */ .chroma { color:#ebdbb2;background-color:#282828; }
+  /* Other */ .chroma .x {  }
+  /* Error */ .chroma .err {  }
+  /* CodeLine */ .chroma .cl {  }
+  /* LineLink */ .chroma .lnlinks { outline:none;text-decoration:none;color:inherit }
+  /* LineTableTD */ .chroma .lntd { vertical-align:top;padding:0;margin:0;border:0; }
+  /* LineTable */ .chroma .lntable { border-spacing:0;padding:0;margin:0;border:0; }
+  /* LineHighlight */ .chroma .hl { background-color:#3d3d3d }
+  /* LineNumbersTable */ .chroma .lnt { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59 }
+  /* LineNumbers */ .chroma .ln { white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#756d59 }
+  /* Line */ .chroma .line { display:flex; }
+  /* Keyword */ .chroma .k { color:#fe8019 }
+  /* KeywordConstant */ .chroma .kc { color:#fe8019 }
+  /* KeywordDeclaration */ .chroma .kd { color:#fe8019 }
+  /* KeywordNamespace */ .chroma .kn { color:#fe8019 }
+  /* KeywordPseudo */ .chroma .kp { color:#fe8019 }
+  /* KeywordReserved */ .chroma .kr { color:#fe8019 }
+  /* KeywordType */ .chroma .kt { color:#fabd2f }
+  /* Name */ .chroma .n {  }
+  /* NameAttribute */ .chroma .na { color:#b8bb26;font-weight:bold }
+  /* NameBuiltin */ .chroma .nb { color:#fabd2f }
+  /* NameBuiltinPseudo */ .chroma .bp {  }
+  /* NameClass */ .chroma .nc {  }
+  /* NameConstant */ .chroma .no { color:#d3869b }
+  /* NameDecorator */ .chroma .nd {  }
+  /* NameEntity */ .chroma .ni { color:#fabd2f }
+  /* NameException */ .chroma .ne { color:#fb4934 }
+  /* NameFunction */ .chroma .nf { color:#fabd2f }
+  /* NameFunctionMagic */ .chroma .fm {  }
+  /* NameLabel */ .chroma .nl { color:#fb4934 }
+  /* NameNamespace */ .chroma .nn {  }
+  /* NameOther */ .chroma .nx {  }
+  /* NameProperty */ .chroma .py {  }
+  /* NameTag */ .chroma .nt { color:#fb4934 }
+  /* NameVariable */ .chroma .nv {  }
+  /* NameVariableClass */ .chroma .vc {  }
+  /* NameVariableGlobal */ .chroma .vg {  }
+  /* NameVariableInstance */ .chroma .vi {  }
+  /* NameVariableMagic */ .chroma .vm {  }
+  /* Literal */ .chroma .l {  }
+  /* LiteralDate */ .chroma .ld {  }
+  /* LiteralString */ .chroma .s { color:#b8bb26 }
+  /* LiteralStringAffix */ .chroma .sa { color:#b8bb26 }
+  /* LiteralStringBacktick */ .chroma .sb { color:#b8bb26 }
+  /* LiteralStringChar */ .chroma .sc { color:#b8bb26 }
+  /* LiteralStringDelimiter */ .chroma .dl { color:#b8bb26 }
+  /* LiteralStringDoc */ .chroma .sd { color:#b8bb26 }
+  /* LiteralStringDouble */ .chroma .s2 { color:#b8bb26 }
+  /* LiteralStringEscape */ .chroma .se { color:#b8bb26 }
+  /* LiteralStringHeredoc */ .chroma .sh { color:#b8bb26 }
+  /* LiteralStringInterpol */ .chroma .si { color:#b8bb26 }
+  /* LiteralStringOther */ .chroma .sx { color:#b8bb26 }
+  /* LiteralStringRegex */ .chroma .sr { color:#b8bb26 }
+  /* LiteralStringSingle */ .chroma .s1 { color:#b8bb26 }
+  /* LiteralStringSymbol */ .chroma .ss { color:#83a598 }
+  /* LiteralNumber */ .chroma .m { color:#d3869b }
+  /* LiteralNumberBin */ .chroma .mb { color:#d3869b }
+  /* LiteralNumberFloat */ .chroma .mf { color:#d3869b }
+  /* LiteralNumberHex */ .chroma .mh { color:#d3869b }
+  /* LiteralNumberInteger */ .chroma .mi { color:#d3869b }
+  /* LiteralNumberIntegerLong */ .chroma .il { color:#d3869b }
+  /* LiteralNumberOct */ .chroma .mo { color:#d3869b }
+  /* Operator */ .chroma .o { color:#fe8019 }
+  /* OperatorWord */ .chroma .ow { color:#fe8019 }
+  /* Punctuation */ .chroma .p {  }
+  /* Comment */ .chroma .c { color:#928374;font-style:italic }
+  /* CommentHashbang */ .chroma .ch { color:#928374;font-style:italic }
+  /* CommentMultiline */ .chroma .cm { color:#928374;font-style:italic }
+  /* CommentSingle */ .chroma .c1 { color:#928374;font-style:italic }
+  /* CommentSpecial */ .chroma .cs { color:#928374;font-style:italic }
+  /* CommentPreproc */ .chroma .cp { color:#8ec07c }
+  /* CommentPreprocFile */ .chroma .cpf { color:#8ec07c;font-style:italic }
+  /* Generic */ .chroma .g {  }
+  /* GenericDeleted */ .chroma .gd { color:#282828;background-color:#fb4934 }
+  /* GenericEmph */ .chroma .ge { color:#83a598;text-decoration:underline }
+  /* GenericError */ .chroma .gr { background-color:#fb4934;font-weight:bold }
+  /* GenericHeading */ .chroma .gh { color:#b8bb26;font-weight:bold }
+  /* GenericInserted */ .chroma .gi { color:#282828;background-color:#b8bb26 }
+  /* GenericOutput */ .chroma .go { color:#504945 }
+  /* GenericPrompt */ .chroma .gp {  }
+  /* GenericStrong */ .chroma .gs {  }
+  /* GenericSubheading */ .chroma .gu { color:#b8bb26;font-weight:bold }
+  /* GenericTraceback */ .chroma .gt { background-color:#fb4934;font-weight:bold }
+  /* GenericUnderline */ .chroma .gl {  }
+  /* TextWhitespace */ .chroma .w {  }
+}
+
+/* Use background color slightly different from that of <body> */
+/* Without language */
+pre:not(.chroma),
+/* With language */
+.bg,
+.chroma,
+.highlight {
+  background-color: var(--background-color1);
+}
+/* Hide the website title */
+
+/*
+.header > h1 {
+  display: none;
+}
+*/
+/* Increase body width */
+
+/* 
+:root {
+  --body-max-width: 800px;
+}
+*/
