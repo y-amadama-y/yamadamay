@@ -2,9 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://yamadamay.dev/</loc>
-    <lastmod>2026-03-17T20:32:40+09:00</lastmod>
-  </url><url>
     <loc>https://yamadamay.dev/categories/</loc>
     <lastmod>2026-03-17T20:32:40+09:00</lastmod>
   </url><url>
@@ -15,6 +12,9 @@
     <lastmod>2026-03-17T20:32:40+09:00</lastmod>
   </url><url>
     <loc>https://yamadamay.dev/categories/prosepoem/</loc>
+    <lastmod>2026-03-17T20:32:40+09:00</lastmod>
+  </url><url>
+    <loc>https://yamadamay.dev/</loc>
     <lastmod>2026-03-17T20:32:40+09:00</lastmod>
   </url><url>
     <loc>https://yamadamay.dev/posts/test/</loc>
