@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>櫻田部鶴鳴渡</title>
+    <title>yamadamay</title>
     <link>https://yamadamay.dev/</link>
-    <description>Recent content on 櫻田部鶴鳴渡</description>
+    <description>Recent content on yamadamay</description>
     <generator>Hugo</generator>
     <language>ja-jp</language>
-    <lastBuildDate>Sun, 15 Mar 2026 14:53:18 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 17 Mar 2026 20:32:40 +0900</lastBuildDate>
     <atom:link href="https://yamadamay.dev/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Gentle Stretch</title>
+      <link>https://yamadamay.dev/posts/gentle-stretch/</link>
+      <pubDate>Tue, 17 Mar 2026 20:32:40 +0900</pubDate>
+      <guid>https://yamadamay.dev/posts/gentle-stretch/</guid>
+      <description>&lt;p&gt;I step into the bathroom.&#xA;I leave the light turn off.&#xA;Sunlight drifts in.&#xA;I sink into the bathtub.&#xA;Warm blood stirs.&#xA;I let out a breath.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Test</title>
       <link>https://yamadamay.dev/posts/test/</link>
